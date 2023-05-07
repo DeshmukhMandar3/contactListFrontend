@@ -13,6 +13,7 @@ const Navbar = () => {
   React.useEffect(() => {
     let token = localStorage.getItem("token");
     let id = localStorage.getItem("id");
+    //if token doesnt exist means user has not logged in, hance will be redirected to login.
     if (!token) {
       navigate("/");
     } else {
@@ -34,6 +35,7 @@ const Navbar = () => {
     }
   }, []);
 
+  //handle Logout will remove token and id form local storge and will redirect to login page;
   const handleLogout = () => {
     localStorage.clear();
     navigate("/");

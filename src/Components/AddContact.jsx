@@ -16,16 +16,23 @@ import axios from "axios";
 import { IoCreate } from "react-icons/io5";
 
 const AddContact = ({ getData, setLoadingMain }) => {
+  //disclosure for opening and closing Modal
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  //State management for form input
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [phone, setPhone] = React.useState("");
+
+  //state management for token and id
   const [token, setToken] = React.useState("");
   const [id, setId] = React.useState("");
+
+  //state management for loader
   const [loading, setLoading] = React.useState(false);
 
+  //function to make network request to add new contact
   const handleAdd = async () => {
-    console.log(getData);
     if (name.length != 0 && email.length != 0 && phone.length != 0) {
       setLoading(true);
       try {
@@ -36,10 +43,13 @@ const AddContact = ({ getData, setLoadingMain }) => {
         );
         setLoading(false);
         alert("Contact added successfully");
+        //function to close modal
         onClose();
+        //state changed to original value;
         setEmail();
         setName();
         setPhone();
+        //function to fetch data from server
         getData(token, id);
       } catch (err) {
         console.log(err);

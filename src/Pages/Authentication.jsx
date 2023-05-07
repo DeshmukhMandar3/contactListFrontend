@@ -11,6 +11,7 @@ const Authentication = () => {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  //loader state;
   const [loading, setLoading] = React.useState(false);
   const navigate = useNavigate();
 
@@ -53,6 +54,7 @@ const Authentication = () => {
         if (res.data && res.data.token) {
           setLoading(false);
           alert("Login Successful!");
+          //token stored to local storage
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("id", res.data.id);
           navigate("/contact");

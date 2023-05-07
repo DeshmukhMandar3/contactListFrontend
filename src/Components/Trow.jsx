@@ -4,11 +4,18 @@ import React from "react";
 import styles from "../css/ContactList.module.css";
 
 const Trow = ({ contact }) => {
+  //state managed for input data
   const [name, setName] = React.useState(contact.name);
   const [email, setEmail] = React.useState(contact.email);
   const [phone, setPhone] = React.useState(contact.phone);
+
+  //state for displaying hidden input boxes
   const [edit, setEdit] = React.useState(false);
+
+  //state for token
   const [token, setToken] = React.useState("");
+
+  //To hide the row if deleted which will prevent unnecessary re-render.
   const [hide, setHide] = React.useState(false);
 
   React.useEffect(() => {
@@ -16,6 +23,7 @@ const Trow = ({ contact }) => {
     setToken(token);
   }, []);
 
+  //function to handle update
   async function handleUpdate() {
     setEdit(!edit);
     try {
@@ -31,6 +39,7 @@ const Trow = ({ contact }) => {
     }
   }
 
+  //function to handle delete
   async function handleDelete() {
     try {
       let res = await axios.delete(
@@ -45,7 +54,9 @@ const Trow = ({ contact }) => {
     }
   }
   return (
+    //  display none will prevent unnecessary re-render for contacts
     <Tr display={hide ? "none" : "table-row"}>
+      {/* every cell contains Text and Input box can be toggled with edit button */}
       <Td>
         <Text display={edit ? "none" : "block"}>{name}</Text>{" "}
         <Input
@@ -78,6 +89,7 @@ const Trow = ({ contact }) => {
         >
           Edit
         </Button>
+
         <Button
           display={edit ? "block" : "none"}
           onClick={handleUpdate}

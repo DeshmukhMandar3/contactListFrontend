@@ -9,12 +9,16 @@ import AddContact from "../Components/AddContact";
 
 const ContactList = () => {
   const navigate = useNavigate();
+  //state for all contacts;
   const [contacts, setContacts] = React.useState([]);
+  //loader state
   const [loading, setLoadingMain] = React.useState(false);
 
   React.useEffect(() => {
+    //id and token fetching from local storage
     let id = localStorage.getItem("id");
     let token = localStorage.getItem("token");
+    //if token doesn't exist then navigate to authentication
     if (!token) {
       navigate("/");
     } else {
@@ -22,6 +26,7 @@ const ContactList = () => {
     }
   }, []);
 
+  // get all contacts created by perticular user
   async function getData(token, id) {
     setLoadingMain(true);
     try {
@@ -38,9 +43,11 @@ const ContactList = () => {
       setLoadingMain(false);
     }
   }
+
   return (
     <div className={styles.wrapper}>
       <Navbar />
+      {/* Add new contact modal */}
       <Flex justifyContent={"right"} padding="10px 5px">
         <AddContact getData={getData} setLoadingMain={setLoadingMain} />
       </Flex>
@@ -64,6 +71,7 @@ const ContactList = () => {
               <Th>Delete</Th>
             </Tr>
           </Thead>
+          {/* Trow is component for row  */}
           <Tbody>
             {contacts.map((el) => {
               return <Trow contact={el} key={el._id} />;
