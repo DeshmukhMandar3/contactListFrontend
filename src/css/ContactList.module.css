@@ -1,0 +1,35 @@
+.wrapper {
+  height: 100vh;
+}
+
+.navbar {
+  justify-content: right;
+  padding: 5px 10px;
+  background-color: pink;
+  align-items: center;
+  background-image: url("https://64.media.tumblr.com/c2436f7bca65ec57f4323dd247921f01/4ae81ec883557e32-44/s640x960/ca976f2916b3f4df967eb447ab0ddc090b2972bf.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: rgba(43, 66, 91, 0.874);
+  font-weight: bold;
+}
+
+.navbar Button {
+  background-color: rgb(42, 222, 162);
+  font-weight: bold;
+}
+
+.profile {
+  width: 8%;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.navbar > div {
+  justify-content: right;
+  margin-right: 15px;
+}
+
+.addform Input {
+  margin: 10px 0px;
+}

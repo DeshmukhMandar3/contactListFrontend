@@ -1,0 +1,52 @@
+.wrapper {
+  padding: 10%;
+  background-image: url("https://64.media.tumblr.com/c2436f7bca65ec57f4323dd247921f01/4ae81ec883557e32-44/s640x960/ca976f2916b3f4df967eb447ab0ddc090b2972bf.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.register_form {
+  width: 50%;
+  margin: auto;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 20px;
+  background-color: rgba(17, 48, 116, 0.66);
+  color: white;
+}
+
+.register_form Input {
+  margin: 10px 0px;
+}
+
+.login_form {
+  width: 50%;
+  margin: auto;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 20px;
+  background-color: rgba(17, 48, 116, 0.66);
+  color: white;
+}
+
+.login_form Input {
+  margin: 10px 0px;
+}
+
+.button_wrapper {
+  width: 50%;
+  margin: auto;
+  color: white;
+}
+.button_wrapper Button {
+  width: 50%;
+  border-radius: 0px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+form Button {
+  width: 100%;
+  margin: 10px 0px;
+}
